@@ -134,12 +134,23 @@
     </div>
 
     <script>
-        // JavaScript para mostrar/ocultar los enlaces al hacer clic en el ícono
-        document.getElementById('menu-icon').addEventListener('click', function () {
-            const enlaces = document.getElementById('enlaces');
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuIcon = document.getElementById('menu-icon');
+        const enlaces = document.getElementById('enlaces');
+
+        menuIcon.addEventListener('click', function (event) {
             enlaces.classList.toggle('active');
+            event.stopPropagation(); // Evita que el clic en el ícono cierre inmediatamente el menú
         });
-    </script>
+
+        document.addEventListener('click', function (event) {
+            if (!enlaces.contains(event.target) && !menuIcon.contains(event.target)) {
+                enlaces.classList.remove('active'); // Oculta el menú si se hace clic fuera de él
+            }
+        });
+    });
+</script>
+
 </body>
 
 </html>
