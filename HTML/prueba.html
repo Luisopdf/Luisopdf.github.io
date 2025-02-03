@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Suma</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .container { display: inline-block; text-align: left; }
+        .total { font-size: 24px; font-weight: bold; margin-top: 20px; }
+        .whatsapp-button { margin-top: 20px; padding: 10px 20px; font-size: 18px; background-color: #25D366; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Selecciona opciones</h2>
+        <form id="formulario">
+            <label>
+                <input type="checkbox" class="opcion" value="10"> Opción 1 - $10
+            </label><br>
+            <label>
+                <input type="checkbox" class="opcion" value="20"> Opción 2 - $20
+            </label><br>
+            <label>
+                <input type="checkbox" class="opcion" value="30"> Opción 3 - $30
+            </label><br>
+        </form>
+        <div class="total">Total: $<span id="total">0</span></div>
+        <button class="whatsapp-button" id="enviarWhatsapp">Enviar a WhatsApp</button>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const checkboxes = document.querySelectorAll(".opcion");
+            const totalSpan = document.getElementById("total");
+            const whatsappButton = document.getElementById("enviarWhatsapp");
+            
+            function actualizarTotal() {
+                let total = 0;
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        total += parseInt(checkbox.value);
+                    }
+                });
+                totalSpan.textContent = total;
+            }
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener("change", actualizarTotal);
+            });
+            
+            whatsappButton.addEventListener("click", function() {
+                let total = totalSpan.textContent;
+                let mensaje = `Hola, el total de mi selección es: $${total}\n\n` +
+                `Paulo Coelho de Souza (Río de Janeiro, 24 de agosto de 1947) es un novelista, dramaturgo y letrista brasileño después de varios años dedicado a la poesía.\n\n` +
+                `Es uno de los escritores y novelistas más leídos del mundo, con más de 320 millones de libros vendidos en más de 170 países (224 territorios), traducidos a 88 lenguas...Paulo Coelho de Souza (Río de Janeiro, 24 de agosto de 1947) es un novelista, dramaturgo y letrista brasileño después de varios años dedicado a la poesía.
+
+Es uno de los escritores y novelistas más leídos del mundo, con más de 320 millones de libros vendidos en más de 170 países (224 territorios), traducidos a 88 lenguas. Es el escritor con mayor número de seguidores en las redes sociales, alcanzando cifras de 29,5 millones en Facebook y 15,5 millones en Twitter/X.[cita requerida] Desde octubre de 2002 es miembro de la Academia Brasileña de las Letras. Ha recibido destacados premios y reconocimientos internacionales, como la prestigiosa distinción Chevalier de L'Ordre National de La Legion d'Honneur del Gobierno francés, la Medalla de Oro de Galicia y el premio Crystal Award que concede el Foro Económico Mundial, entre muchos otros premios que ha obtenido gracias a su gran éxito. Además de recibir destacados premios y menciones internacionales, en la actualidad es consejero especial de la Unesco para el programa de convergencia espiritual y diálogos interculturales, así como Mensajero de la Paz de Naciones Unidas.
+
+Escribe columnas periodísticas semanales que se publican en medios de todo el mundo. Alcanzó el éxito con su mayor obra, El alquimista. Paulo está casado con la pintora brasileña Christina Oiticica.
+
+Biografía
+Paulo Coelho de Souza nació el 24 de agosto de 1947 en una pequeña familia de clase acomodada y de marcada influencia católica. Sus padres fueron Pedro Queima Coelho de Souza y Lygia Araripe, de profesiones ingeniero y museógrafa, respectivamente.
+
+A los siete años ingresa en el colegio jesuita San Ignacio de Río de Janeiro. Paulo se muestra reacio a aceptar la naturaleza obligatoria de la práctica religiosa que le inculcan sus padres. No soporta ni rezar ni ir a misa, pero logra descubrir allí su verdadera vocación: ser escritor. Desde pequeño muestra interés por la literatura y se dedica a leer a todo tipo de autores: Trópico de Cáncer, de Henry Miller, obras de Jorge Luis Borges, Marx, Hegel, Friedrich Engels, etc.1​ Pronto gana su primer premio literario en un concurso escolar de poesía, y su hermana Sonia cuenta cómo se hizo con un premio de redacción al presentar a un concurso un escrito que el mismo Paulo había tirado a la basura.
+
+Sus padres pretenden que sea ingeniero y por eso intentan reprimir sus deseos de dedicarse a la literatura, lo que provoca una gran rebeldía en Paulo, quien empieza a desobedecer las normas familiares.1​ Es a los diecisiete años cuando, debido a "inmadurez, rebeldía, incapacidad para adaptarse a la sociedad, irritabilidad y actitudes radicales y extremistas", es internado en un hospital psiquiátrico, donde le someten a varias sesiones de electroshock.1​
+
+Poco más tarde, Paulo empieza a relacionarse con un grupo de teatro y a dedicarse al periodismo.2​ En aquella época el teatro no estaba bien visto en ciertos niveles sociales; por eso sus padres vuelven a internarlo.1​ Cuando sale, Paulo está aún más perdido y encerrado en su mundo. La familia llama a otro médico psiquiatra, el doctor Fajardo, quien hace una nueva apreciación del problema: Paulo no está loco y no va a ser internado; hará un tratamiento de unas quince sesiones con él.1​ Treinta años después de estas vivencias, Paulo Coelho escribiría una novela inspirada en esos años, Veronika decide morir.2​
+
+Pasado el período de los centros psiquiátricos, Paulo empieza la carrera de derecho; sin embargo, poco tiempo después abandona sus estudios para dedicarse de nuevo al teatro. Es la época de los sesenta y el mundo entero asiste a la explosión del movimiento hippie. Brasil, bajo una dictadura militar muy represiva, también se hace eco de las nuevas tendencias.1​ Paulo lleva entonces el pelo largo y va indocumentado por voluntad propia; durante algún tiempo experimenta con todo lo que la vida le ofrece, ya que quiere vivir la experiencia hippie con gran intensidad. Su pasión por escribir le impulsa a fundar una revista de la que solamente salen dos ejemplares.
+
+En esa época conoce a Raúl Seixas, músico y compositor, con quien Paulo escribe letras de canciones.2​ Algunas de ellas son: «Eu nasci há dez mil anos atrás» («I Was Born Ten Thousand Years Ago»), «Gita» y «Al Capone».3​4​ Con el segundo disco cosechan un gran éxito y llegan a vender más de 500.000 copias; es la primera vez que Paulo gana una gran cantidad de dinero. Hasta 1976 compone más de ciento veinte canciones con Raúl Seixas y juntos cambian el panorama del rock brasileño. También escribe para Elis Regina y Rita Lee.5​ Después de trabajar como letrista para los grandes nombres de la canción popular brasileña, se dedica al periodismo y a escribir algunos guiones para la televisión: Once Minutos - 2007.6​`;
+                let telefono = "5548027865"; // Reemplaza con tu número de WhatsApp
+                let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+                window.open(url, "_blank");
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+<div class="contenedor">
+    <h1>¡Empieza a personalizar tu pastel!</h1>
+    <form action="#" method="post">
+        <!-- Tipo de pastel -->
+        <label for="tipo-pastel">Tipo de pastel:</label>
+        <select id="tipo-pastel" name="tipo-pastel" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="tres-leches">Tres leches</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="vainilla">Vainilla</option>
+            <option value="red-velvet">Red Velvet</option>
+            <option value="frutas">Frutas</option>
+        </select>
+
+        <!-- Sabor del pastel -->
+        <label for="sabor">Sabor:</label>
+        <select id="sabor" name="sabor" required>
+            <option value="" disabled selected>Selecciona un sabor</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="vainilla">Vainilla</option>
+            <option value="fresa">Fresa</option>
+            <option value="limon">Limón</option>
+            <option value="cafe">Café</option>
+        </select>
+
+        <!-- Relleno -->
+        <label for="relleno">Relleno:</label>
+        <select id="relleno" name="relleno" required>
+            <option value="" disabled selected>Selecciona un relleno</option>
+            <option value="crema">Crema pastelera</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="frutas">Frutas frescas</option>
+            <option value="dulce-leche">Dulce de leche</option>
+            <option value="ninguno">Sin relleno</option>
+        </select>
+
+        <!-- Cobertura -->
+        <label for="cobertura">Cobertura:</label>
+        <select id="cobertura" name="cobertura" required>
+            <option value="" disabled selected>Selecciona una cobertura</option>
+            <option value="fondant">Fondant</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="crema">Crema batida</option>
+            <option value="merengue">Merengue</option>
+            <option value="ninguna">Sin cobertura</option>
+        </select>
+
+        <!-- Decoración adicional -->
+
+        <label for="decoracion">Decoración adicional:</label>
+        <textarea id="decoracion" name="decoracion"
+            placeholder="Describe cómo quieres decorar tu pastel..."></textarea>
+        <!-- Botón de enviar -->
+        <button type="submit">¡Cotizar mi pastel!</button>
+    </form>
+
+</div>

@@ -1,0 +1,344 @@
+/* Estilos básicos para la barra de navegación */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Evita el desplazamiento horizontal */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url('/IMG/fondo1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body {
+    font-family: "Lobster", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* Asegura que el body cubra toda la pantalla */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Cuerpo {
+
+
+    height: 100vh;
+    /* Asegura que ocupe el 100% de la altura de la pantalla */
+    width: 100%;
+    /* Asegura que ocupe todo el ancho */
+
+}
+
+
+nav {
+    background-color: transparent;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 50px;
+    /* Ajusta el tamaño del logo según sea necesario */
+}
+
+.enlaces {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 10px;
+    /* Reducir el margen entre botones */
+    font-size: 18px;
+    padding: 10px 20px;
+    /* Añadir padding para que parezcan botones */
+    border-radius: 25px;
+    /* Bordes redondeados */
+    background-color: transparent;
+    /* Fondo transparente por defecto */
+    transition: background-color 0.3s, color 0.3s;
+    /* Transición suave */
+}
+
+a:hover {
+    color: black;
+    background-color: white;
+    /* Fondo blanco al pasar el mouse */
+}
+
+.menu-icon {
+    display: none;
+    /* Ocultar el ícono por defecto */
+    cursor: pointer;
+    margin-left: auto;
+    /* Mover el ícono a la derecha */
+    padding-right: 20px;
+    /* Separación del borde */
+}
+
+@media (max-width: 770px) {
+    .menu-icon {
+        display: block;
+        /* Mostrar el ícono en pantallas pequeñas */
+    }
+
+    .enlaces {
+        display: none;
+        /* Ocultar los enlaces por defecto en pantallas pequeñas */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        /* Ajusta según la altura de tu barra de navegación */
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+
+    .enlaces.active {
+        display: flex;
+        /* Mostrar los enlaces cuando se active la clase */
+    }
+    .intro p {
+        font-size: 12px !important; /* Forzar el tamaño de la letra a 10px */
+    }
+}
+
+.btn-barra {
+    color: black;
+    background-color: white;
+}
+
+.btn-barra:hover {
+    color: white;
+    background-color: black;
+}
+
+.intro {
+    display: flex;
+    /* Activa flexbox */
+    flex-direction: column;
+    /* Alinea los elementos en columna */
+    justify-content: center;
+    /* Centra verticalmente */
+    align-items: center;
+    /* Centra horizontalmente */
+    height: 35%;
+    /* Asegura que ocupe toda la pantalla */
+    text-align: center;
+    /* Centra el texto */
+    margin: 50px;
+}
+
+.intro img {
+    width: 35%;
+    /* Ajusta el tamaño de la imagen si es necesario */
+}
+
+.intro p {
+    width: 35%;
+    /* Ancho del texto */
+    word-wrap: break-word;
+    /* Rompe el texto si es necesario */
+    font-size: 12px;
+    /* Ajusta el tamaño de la fuente */
+    margin-top: 10px;
+    /* Espaciado entre la imagen y el texto */
+    text-align: center;
+}
+
+@media (max-width:650px) {
+    .intro img , .intro p {
+        width: 60% ; /* Forzar el tamaño de la letra a 10px */
+    }
+}
+
+section {
+    display: flex;
+    width: 100%;
+    height: 430px;
+    background-color: black;
+
+}
+
+.barra {
+    display: flex;
+    width: 100%;
+    height: 430px;
+    background-color: black;
+}
+
+.contenedor {
+    position: relative;
+    width: 25%;
+    /* Se asegura de que los elementos inicien con un tamaño uniforme */
+    flex-grow: 1;
+    overflow: hidden;
+    transition: width 0.5s ease, flex-grow 0.5s ease;
+}
+
+.contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Efecto de expansión al hacer hover */
+.contenedor:hover {
+    flex-grow: 3;
+    width: 40%;
+}
+
+/* También se agranda la imagen para que cubra el espacio expandido */
+.contenedor:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+
+}
+
+.contenedor .texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+
+}
+
+/* Ocultar el nuevo texto por defecto */
+.texto-hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+}
+
+/* Mostrar el nuevo texto y ocultar el original al pasar el mouse */
+.contenedor:hover .texto-original {
+    opacity: 0;
+}
+
+.contenedor:hover .texto-hover {
+    opacity: 1;
+    padding: 25px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.contenedor:hover .texto-hover p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 5%;
+}
+
+.texto-hover a {
+    margin: 100px;
+}
+
+.Cotizacion {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('/IMG/cotizacion.jpg');
+    padding: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+}
+
+.Cotizacion .contenedor-cot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: white;
+}
+
+.Cotizacion h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.Cotizacion p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+.Cotizacion a {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cont-redes {
+    background: none;
+    /* Elimina el fondo negro */
+    text-align: center;
+    /* Centra el h2 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+}
+
+.cont-redes h2 {
+    margin-bottom: 20px;
+    /* Espacio debajo del h2 */
+}
+
+.cont-red-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* Centra los posts horizontalmente */
+    height: 100%;
+    margin: 1%;
+    gap: 20px;
+    /* Espacio entre los posts */
+}
+
+.redes {
+    width: 30%;
+    /* Ajusta el ancho de los posts */
+    height: 100%;
+    margin: 0 10px;
+    /* Espacio adicional entre los posts (opcional) */
+}
+
+.cont-redes blockquote {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    /* Elimina márgenes predeterminados */
+}

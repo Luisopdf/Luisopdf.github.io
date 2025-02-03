@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/pasteles-style.css">
+    <title>¡Empieza a personalizar tu pastel!</title>
+    <script>
+        function calcularTotal() {
+            let precios = {
+                "tres-leches": 50,
+                "chocolate": 55,
+                "vainilla": 45,
+                "red-velvet": 60,
+                "frutas": 65,
+                "crema": 20, // Relleno
+                "chocolate": 25, // Relleno
+                "frutas": 30, // Relleno
+                "dulce-leche": 35, // Relleno
+                "ninguno": 0, // Relleno
+                "fondant": 40, // Cobertura
+                "chocolate": 25, // Cobertura
+                "crema": 30, // Cobertura
+                "merengue": 25, // Cobertura
+                "ninguna": 0 // Cobertura
+            };
+
+            let tipoPastel = document.getElementById("tipo-pastel").value;
+            let sabor = document.getElementById("sabor").value;
+            let relleno = document.getElementById("relleno").value;
+            let cobertura = document.getElementById("cobertura").value;
+            let decoracion = document.getElementById("decoracion").value;
+
+            // Inicializar el total en 0
+            let total = 0;
+
+            // Sumar los precios solo si los valores están definidos
+            if (tipoPastel && precios[tipoPastel]) {
+                total += precios[tipoPastel];
+            }
+            if (relleno && precios[relleno]) {
+                total += precios[relleno];
+            }
+            if (cobertura && precios[cobertura]) {
+                total += precios[cobertura];
+            }
+
+            // Mostrar el total
+            document.getElementById("total").innerText = "Total: $" + total;
+            return { tipoPastel, sabor, relleno, cobertura, decoracion, total };
+        }
+
+        function enviarWhatsApp() {
+            let datos = calcularTotal();
+            let numeroWhatsApp = "525548027865"; // Reemplaza con tu número de WhatsApp en formato internacional.
+            let mensaje = `¡Quiero cotizar un pastel!%0A
+             *Tipo de pastel:* ${datos.tipoPastel}%0A
+             *Sabor:* ${datos.sabor}%0A
+             *Relleno:* ${datos.relleno}%0A
+             *Cobertura:* ${datos.cobertura}%0A
+             *Decoración:* ${datos.decoracion || "Sin especificar"}%0A
+             *Total:* $${datos.total}`;
+
+            let url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+            window.open(url, "_blank");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="Cuerpo">
+        <nav>
+            <div class="logo">
+                <img src="/IMG/logo.png" alt="Logo de Croma Bakery">
+            </div>
+            <div class="enlaces">
+                <a href="HTML/pasteles.html">Pasteles</a>
+                <a href="#">Galletas</a>
+                <a href="#">Pide Ahora</a>
+                <a href="#">Conócenos</a>
+            </div>
+        </nav>
+        <div class="contenedor">
+            <h1>¡Empieza a personalizar tu pastel!</h1>
+            <form oninput="calcularTotal(); return false;">
+                <label for="tipo-pastel">Tipo de pastel:</label>
+                <select id="tipo-pastel" name="tipo-pastel" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="tres-leches">Tres leches ($50)</option>
+                    <option value="chocolate">Chocolate ($55)</option>
+                    <option value="vainilla">Vainilla ($45)</option>
+                    <option value="red-velvet">Red Velvet ($60)</option>
+                    <option value="frutas">Frutas ($65)</option>
+                </select>
+
+                <label for="sabor">Sabor:</label>
+                <select id="sabor" name="sabor" required>
+                    <option value="" disabled selected>Selecciona un sabor</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="vainilla">Vainilla</option>
+                    <option value="fresa">Fresa</option>
+                    <option value="limon">Limón</option>
+                    <option value="cafe">Café</option>
+                </select>
+
+                <label for="relleno">Relleno:</label>
+                <select id="relleno" name="relleno" required>
+                    <option value="" disabled selected>Selecciona un relleno</option>
+                    <option value="crema">Crema pastelera (+$20)</option>
+                    <option value="chocolate">Chocolate (+$25)</option>
+                    <option value="frutas">Frutas frescas (+$30)</option>
+                    <option value="dulce-leche">Dulce de leche (+$35)</option>
+                    <option value="ninguno">Sin relleno (+$0)</option>
+                </select>
+
+                <label for="cobertura">Cobertura:</label>
+                <select id="cobertura" name="cobertura" required>
+                    <option value="" disabled selected>Selecciona una cobertura</option>
+                    <option value="fondant">Fondant (+$40)</option>
+                    <option value="chocolate">Chocolate (+$35)</option>
+                    <option value="crema">Crema batida (+$30)</option>
+                    <option value="merengue">Merengue (+$25)</option>
+                    <option value="ninguna">Sin cobertura (+$0)</option>
+                </select>
+
+                <label for="decoracion">Decoración adicional:</label>
+                <textarea id="decoracion" name="decoracion"
+                    placeholder="Describe cómo quieres decorar tu pastel..."></textarea>
+
+                <h3 id="total">Total: $0</h3>
+                <button type="button" onclick="enviarWhatsApp()">¡Cotizar mi pastel por WhatsApp!</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
