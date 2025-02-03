@@ -170,12 +170,18 @@ a:hover {
     }
 }
 
+@media (max-width:485px) {
+    .intro p {
+        width: 85% ; /* Forzar el tamaño de la letra a 10px */
+    }
+}
+
+/* Estilos generales (para pantallas mayores a 650px) */
 section {
     display: flex;
     width: 100%;
     height: 430px;
     background-color: black;
-
 }
 
 .barra {
@@ -188,7 +194,6 @@ section {
 .contenedor {
     position: relative;
     width: 25%;
-    /* Se asegura de que los elementos inicien con un tamaño uniforme */
     flex-grow: 1;
     overflow: hidden;
     transition: width 0.5s ease, flex-grow 0.5s ease;
@@ -202,17 +207,14 @@ section {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Efecto de expansión al hacer hover */
 .contenedor:hover {
     flex-grow: 3;
     width: 40%;
 }
 
-/* También se agranda la imagen para que cubra el espacio expandido */
 .contenedor:hover img {
     transform: scale(1.1);
     opacity: 0.8;
-
 }
 
 .contenedor .texto {
@@ -226,16 +228,13 @@ section {
     border-radius: 10px;
     text-align: center;
     width: 80%;
-
 }
 
-/* Ocultar el nuevo texto por defecto */
 .texto-hover {
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
 }
 
-/* Mostrar el nuevo texto y ocultar el original al pasar el mouse */
 .contenedor:hover .texto-original {
     opacity: 0;
 }
@@ -256,6 +255,47 @@ section {
     margin: 100px;
 }
 
+/* Estilos para pantallas menores a 650px */
+@media (max-width: 650px) {
+    section {
+        height: auto; /* Altura automática para adaptarse al contenido */
+    }
+
+    .barra {
+        flex-direction: column; /* Cambia a columna */
+        height: auto; /* Altura automática */
+    }
+
+    .contenedor {
+        width: 100%; /* Ocupa el 100% del ancho */
+        height: 300px; /* Altura fija para cada contenedor */
+        margin-bottom: 10px; /* Espacio entre contenedores */
+    }
+
+    .contenedor img {
+        opacity: 0.7; /* Opacidad fija */
+    }
+
+    /* Ocultar el texto original */
+    .texto-original {
+        display: none;
+    }
+
+    /* Mostrar el texto hover */
+    .texto-hover {
+        opacity: 1; /* Mostrar siempre */
+        padding: 15px; /* Ajuste de padding */
+    }
+
+    .texto-hover p {
+        font-size: 12px;
+        margin: 5%;
+    }
+
+    .texto-hover a {
+        margin: 10px; /* Ajuste de margen */
+    }
+}
 .Cotizacion {
     background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url('/IMG/cotizacion.jpg');
     padding: auto;
