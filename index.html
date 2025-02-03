@@ -134,23 +134,35 @@
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuIcon = document.getElementById('menu-icon');
-        const enlaces = document.getElementById('enlaces');
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.getElementById('menu-icon');
+            const enlaces = document.getElementById('enlaces');
 
-        menuIcon.addEventListener('click', function (event) {
-            enlaces.classList.toggle('active');
-            event.stopPropagation(); // Evita que el clic en el ícono cierre inmediatamente el menú
+            // Abrir/cerrar menú al hacer clic en el ícono
+            menuIcon.addEventListener('click', function (event) {
+                enlaces.classList.toggle('active');
+                event.stopPropagation(); // Evita que el clic en el ícono cierre inmediatamente el menú
+            });
+
+            // Cerrar menú al hacer clic fuera de él
+            document.addEventListener('click', function (event) {
+                if (!enlaces.contains(event.target) && !menuIcon.contains(event.target)) {
+                    enlaces.classList.remove('active');
+                }
+            });
+
+            // Cerrar menú al hacer scroll (para escritorio)
+            document.addEventListener('scroll', function () {
+                enlaces.classList.remove('active');
+            });
+
+            // Cerrar menú al hacer scroll en dispositivos móviles
+            document.addEventListener('touchmove', function () {
+                enlaces.classList.remove('active');
+            });
         });
-
-        document.addEventListener('click', function (event) {
-            if (!enlaces.contains(event.target) && !menuIcon.contains(event.target)) {
-                enlaces.classList.remove('active'); // Oculta el menú si se hace clic fuera de él
-            }
-        });
-    });
-</script>
-
+    </script>
+    
 </body>
 
 </html>
