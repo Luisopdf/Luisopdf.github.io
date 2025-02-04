@@ -157,7 +157,7 @@ a:hover {
     /* Ancho del texto */
     word-wrap: break-word;
     /* Rompe el texto si es necesario */
-    font-size: 12px;
+    font-size: 14px;
     /* Ajusta el tamaño de la fuente */
     margin-top: 10px;
     /* Espaciado entre la imagen y el texto */
@@ -165,6 +165,7 @@ a:hover {
 }
 
 @media (max-width:650px) {
+    
     .intro img , .intro p {
         width: 60% ; /* Forzar el tamaño de la letra a 10px */
     }
@@ -176,6 +177,11 @@ a:hover {
     }
 }
 
+@media (max-width:1290px) {
+    .intro p {
+        width: 85% ; /* Forzar el tamaño de la letra a 10px */
+    }
+}
 /* Estilos generales (para pantallas mayores a 650px) */
 section {
     display: flex;
@@ -246,7 +252,6 @@ section {
 }
 
 .contenedor:hover .texto-hover p {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     margin: 5%;
 }
@@ -256,7 +261,10 @@ section {
 }
 
 /* Estilos para pantallas menores a 650px */
-@media (max-width: 650px) {
+@media (max-width: 1290px) {
+    .intro p {
+        font-size: 16px !important; /* Forzar el tamaño de la letra a 10px */
+    }
     section {
         height: auto; /* Altura automática para adaptarse al contenido */
     }
@@ -269,11 +277,23 @@ section {
     .contenedor {
         width: 100%; /* Ocupa el 100% del ancho */
         height: 300px; /* Altura fija para cada contenedor */
-        margin-bottom: 10px; /* Espacio entre contenedores */
+        margin-bottom: 0px; /* Espacio entre contenedores */
     }
 
     .contenedor img {
-        opacity: 0.7; /* Opacidad fija */
+        opacity: 0.4; /* Opacidad fija */
+        transition: none; /* Desactiva la transición */
+    }
+
+    /* Desactiva el hover en pantallas pequeñas */
+    .contenedor:hover {
+        flex-grow: 1; /* Mantén el tamaño original */
+        width: 100%; /* Mantén el ancho original */
+    }
+
+    .contenedor:hover img {
+        transform: none; /* Desactiva la escala */
+        opacity: 0.4; /* Mantén la opacidad original */
     }
 
     /* Ocultar el texto original */
@@ -285,11 +305,13 @@ section {
     .texto-hover {
         opacity: 1; /* Mostrar siempre */
         padding: 15px; /* Ajuste de padding */
+        background-color: transparent;
     }
 
     .texto-hover p {
         font-size: 12px;
         margin: 5%;
+        
     }
 
     .texto-hover a {
@@ -329,7 +351,16 @@ section {
     width: 40%;
     margin-bottom: 20px;
 }
+@media (max-width: 1290px) {
+    .Cotizacion p {
+        width: 75%;
+    }
+    .Cotizacion .contenedor-cot {
 
+        width: 95%;
+
+    }
+}
 .Cotizacion a {
     font-size: 18px;
     padding: 10px 20px;
@@ -342,18 +373,16 @@ section {
 
 .cont-redes {
     background: none;
-    /* Elimina el fondo negro */
     text-align: center;
-    /* Centra el h2 */
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 50%;
+    height: auto;
+    padding: 20px 0;
 }
 
 .cont-redes h2 {
     margin-bottom: 20px;
-    /* Espacio debajo del h2 */
 }
 
 .cont-red-div {
@@ -361,24 +390,37 @@ section {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* Centra los posts horizontalmente */
     height: 100%;
+    width: 85%;
     margin: 1%;
     gap: 20px;
-    /* Espacio entre los posts */
 }
 
 .redes {
-    width: 30%;
-    /* Ajusta el ancho de los posts */
-    height: 100%;
+    width: 30%; /* Ancho para pantallas grandes */
+    height: 45%; /* Altura fija para pantallas grandes */
     margin: 0 10px;
-    /* Espacio adicional entre los posts (opcional) */
+    aspect-ratio: 1 / 1.5; /* Proporción recomendada para posts de Instagram */
 }
 
 .cont-redes blockquote {
     display: inline-block;
     vertical-align: top;
     margin: 0;
-    /* Elimina márgenes predeterminados */
+    width: 100%;
+    height: 100%;
+}
+
+/* Media query para pantallas menores a 1290px */
+@media (max-width: 1290px) {
+    .cont-red-div {
+        flex-direction: column; /* Cambia a columna */
+        gap: 10px;
+    }
+
+    .redes {
+        width: 80%; /* Ocupa más ancho en pantallas pequeñas */
+        height: 500px; /* Altura mayor para evitar que se corten */
+        margin: 10px 0;
+    }
 }
