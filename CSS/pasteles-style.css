@@ -3,11 +3,9 @@
 
 html,
 body {
-    height: 100%;
+
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    /* Evita el desplazamiento horizontal */
     background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url('/IMG/fondo1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,32 +13,16 @@ body {
     background-attachment: fixed;
 }
 
-
-
 body {
     font-family: "Lobster", serif;
     font-weight: 400;
     font-style: normal;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    /* Asegura que el body cubra toda la pantalla */
     color: white;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
-
-.Cuerpo {
-    
-    
-    height: 100vh;
-    /* Asegura que ocupe el 100% de la altura de la pantalla */
-    width: 100%;
-    /* Asegura que ocupe todo el ancho */
-
-}
-
 
 nav {
     background-color: transparent;
@@ -52,106 +34,182 @@ nav {
 
 .logo img {
     height: 50px;
-    /* Ajusta el tamaño del logo según sea necesario */
 }
 
-a {
+.bar-nav {
     text-decoration: none;
     color: #ffffff;
     margin: 0 10px;
-    /* Reducir el margen entre botones */
     font-size: 18px;
     padding: 10px 20px;
-    /* Añadir padding para que parezcan botones */
     border-radius: 25px;
-    /* Bordes redondeados */
     background-color: transparent;
-    /* Fondo transparente por defecto */
     transition: background-color 0.3s, color 0.3s;
-    /* Transición suave */
 }
 
-a:hover {
+.bar-nav:hover {
     color: black;
     background-color: white;
-    /* Fondo blanco al pasar el mouse */
 }
 
-h1, h3{
-    text-align: center;
-    color: black;
+.menu-icon {
+    display: none;
+    cursor: pointer;
 }
-.contenedor {
+
+
+
+.principal{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 5% auto ; /* Centrar en la página */
-    padding: 1%;
-    background-color: white;
-    border-radius: 15px;
-    width: 30%;
-    height: auto; /* Ajusta la altura según el contenido */
-    min-height: 50vh; /* Asegura un mínimo de altura */
+    height: 100%;
+    margin: 5%;
 }
-
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    background-color: #f8f8f8;
-    padding: 2%;
+.principal .contenedor{
+    margin: 5%;
+    background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    color: black;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.img-prin{
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+    width: 80%;
+    font-size: 25px;
+}
+.formulario .categorias{
     width: 100%;
-    max-width: 400px; /* Limita el ancho del formulario */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    
+}
+.formulario .categorias select{
+    margin: 10px;
+    width: 70%;
+    height: 100%;
 }
 
-
-label {
-    font-weight: bold;
-    color: #333;
-    font-size: 16px;
+.categorias.checkbox {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en varias líneas */
+    gap: 10px; /* Espacio entre botones */
+    align-items: center;
+    justify-content:center;
 }
 
-select, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    background-color: white;
-    transition: all 0.3s ease;
+/* Ocultar el checkbox predeterminado */
+.categorias.checkbox input[type="checkbox"] {
+    display: none;
 }
 
-select:hover, textarea:hover,
-select:focus, textarea:focus {
-    border-color: black;
-    outline: none;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+/* Estilo de los botones */
+.categorias.checkbox label.titulo-box {
+    color: black;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #ddd; /* Color de fondo */
+    border-radius: 15px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-textarea {
-    resize: none;
-    width: 95%;
+/* Cambiar el estilo cuando el checkbox está seleccionado */
+.categorias.checkbox input[type="checkbox"]:checked + label.titulo-box {
+    background-color: black; /* Color de fondo seleccionado */
+    color: white; /* Color del texto seleccionado */
 }
 
-button {
+/* Efecto hover */
+.categorias.checkbox label.titulo-box:hover {
     background-color: black;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
+}
+
+/* Estilo para el título "Extras" */
+.categorias.checkbox > label[for="Extras"] {
+    margin-right: 10px;
+}
+
+.categorias textarea{
+    margin: 0 10px;
+    width: 40%;
+    border-radius: 10px;
+}
+
+button{
+    font-family: "Lobster", serif;
+    color: white;
+    background-color: black;
     border: none;
-    border-radius: 5px;
-    padding: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    height: 35px;
+    width: 100px;
+    
 }
 
-button:hover {
-    background-color: white;
+button:hover{
     color: black;
+    background-color: #ddd;
 }
 
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .enlaces {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .enlaces.active {
+        display: flex;
+    }
+    .img-prin{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1{
+        font-size: 150%;
+        text-align: center;
+    }
+    label{
+        font-size: 60%;
+
+    }
+    .principal {
+        margin: 0;
+    }
+
+    .principal .contenedor{
+        width: 100%;
+    }
+}
