@@ -4,135 +4,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/pasteles-style.css">
-    <title>¡Empieza a personalizar tu pastel!</title>
-    <script>
-        function calcularTotal() {
-            let precios = {
-                "tres-leches": 50,
-                "chocolate": 55,
-                "vainilla": 45,
-                "red-velvet": 60,
-                "frutas": 65,
-                "crema": 20, // Relleno
-                "chocolate": 25, // Relleno
-                "frutas": 30, // Relleno
-                "dulce-leche": 35, // Relleno
-                "ninguno": 0, // Relleno
-                "fondant": 40, // Cobertura
-                "chocolate": 25, // Cobertura
-                "crema": 30, // Cobertura
-                "merengue": 25, // Cobertura
-                "ninguna": 0 // Cobertura
-            };
-
-            let tipoPastel = document.getElementById("tipo-pastel").value;
-            let sabor = document.getElementById("sabor").value;
-            let relleno = document.getElementById("relleno").value;
-            let cobertura = document.getElementById("cobertura").value;
-            let decoracion = document.getElementById("decoracion").value;
-
-            // Inicializar el total en 0
-            let total = 0;
-
-            // Sumar los precios solo si los valores están definidos
-            if (tipoPastel && precios[tipoPastel]) {
-                total += precios[tipoPastel];
-            }
-            if (relleno && precios[relleno]) {
-                total += precios[relleno];
-            }
-            if (cobertura && precios[cobertura]) {
-                total += precios[cobertura];
-            }
-
-            // Mostrar el total
-            document.getElementById("total").innerText = "Total: $" + total;
-            return { tipoPastel, sabor, relleno, cobertura, decoracion, total };
-        }
-
-        function enviarWhatsApp() {
-            let datos = calcularTotal();
-            let numeroWhatsApp = "525548027865"; // Reemplaza con tu número de WhatsApp en formato internacional.
-            let mensaje = `¡Quiero cotizar un pastel!%0A
-             *Tipo de pastel:* ${datos.tipoPastel}%0A
-             *Sabor:* ${datos.sabor}%0A
-             *Relleno:* ${datos.relleno}%0A
-             *Cobertura:* ${datos.cobertura}%0A
-             *Decoración:* ${datos.decoracion || "Sin especificar"}%0A
-             *Total:* $${datos.total}`;
-
-            let url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
-            window.open(url, "_blank");
-        }
-    </script>
+    <link rel="icon" href="/IMG/cake.png" type="image/x-icon">
+    <link rel="preload" href="/CSS/pasteles-style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/CSS/pasteles-style.css">
+    </noscript>
+    <title>Pasteles</title>
 </head>
 
 <body>
-    <div class="Cuerpo">
-        <nav>
-            <div class="logo">
-                <img src="/IMG/logo.png" alt="Logo de Croma Bakery">
-            </div>
-            <div class="enlaces">
-                <a href="HTML/pasteles.html">Pasteles</a>
-                <a href="#">Galletas</a>
-                <a href="#">Pide Ahora</a>
-                <a href="#">Conócenos</a>
-            </div>
-        </nav>
+    <nav class="navegacion">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="/index.html"><img src="/IMG/logo.png" alt="Logo de Croma Bakery"></a>
+        </div>
+        <!-- Enlaces -->
+        <div class="enlaces" id="enlaces">
+            <a class="bar-nav" href="/HTML/pasteles.html">Pasteles</a>
+            <a class="bar-nav" href="#">Galletas</a>
+            <a class="bar-nav" href="#">Pide Ahora</a>
+            <a class="bar-nav" href="#">Conócenos</a>
+        </div>
+        <!-- Ícono de menú -->
+        <div class="menu-icon" id="menu-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" width="48" height="48" stroke-width="1.75">
+                <path d="M4 6l16 0"></path>
+                <path d="M4 12l16 0"></path>
+                <path d="M4 18l16 0"></path>
+            </svg>
+        </div>
+    </nav>
+
+    <main class="principal">
+        <img src="/IMG/pasteles-1.webp" alt="" class="img-prin">
         <div class="contenedor">
-            <h1>¡Empieza a personalizar tu pastel!</h1>
-            <form oninput="calcularTotal(); return false;">
-                <label for="tipo-pastel">Tipo de pastel:</label>
-                <select id="tipo-pastel" name="tipo-pastel" required>
-                    <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="tres-leches">Tres leches ($50)</option>
-                    <option value="chocolate">Chocolate ($55)</option>
-                    <option value="vainilla">Vainilla ($45)</option>
-                    <option value="red-velvet">Red Velvet ($60)</option>
-                    <option value="frutas">Frutas ($65)</option>
-                </select>
+            <h1>Personaliza Tu Pastel</h1>
 
-                <label for="sabor">Sabor:</label>
-                <select id="sabor" name="sabor" required>
-                    <option value="" disabled selected>Selecciona un sabor</option>
-                    <option value="chocolate">Chocolate</option>
-                    <option value="vainilla">Vainilla</option>
-                    <option value="fresa">Fresa</option>
-                    <option value="limon">Limón</option>
-                    <option value="cafe">Café</option>
-                </select>
+            <form action="" class="formulario">
+                <div class="categorias">
+                    <label for="Tamano">Tamaño:</label>
+                    <select name="Tamano" id="Tamano" required>
+                        <option value="" disabled selected>Selecciona un tamaño</option>
+                        <option value="Ch">Chico 12cm / 6-8 porciones ($450.00)</option>
+                        <option value="M">Mediano 17cm / 12-16 porciones ($600.00)</option>
+                    </select>
+                </div>
 
-                <label for="relleno">Relleno:</label>
-                <select id="relleno" name="relleno" required>
-                    <option value="" disabled selected>Selecciona un relleno</option>
-                    <option value="crema">Crema pastelera (+$20)</option>
-                    <option value="chocolate">Chocolate (+$25)</option>
-                    <option value="frutas">Frutas frescas (+$30)</option>
-                    <option value="dulce-leche">Dulce de leche (+$35)</option>
-                    <option value="ninguno">Sin relleno (+$0)</option>
-                </select>
+                <div class="categorias">
+                    <label for="Sabor">Sabor:</label>
+                    <select name="Sabor" id="Sabor" required>
+                        <option value="" disabled selected>Selecciona un Sabor</option>
+                        <option value="Ch">Chocolate</option>
+                        <option value="M">Vainilla</option>
+                    </select>
+                </div>
 
-                <label for="cobertura">Cobertura:</label>
-                <select id="cobertura" name="cobertura" required>
-                    <option value="" disabled selected>Selecciona una cobertura</option>
-                    <option value="fondant">Fondant (+$40)</option>
-                    <option value="chocolate">Chocolate (+$35)</option>
-                    <option value="crema">Crema batida (+$30)</option>
-                    <option value="merengue">Merengue (+$25)</option>
-                    <option value="ninguna">Sin cobertura (+$0)</option>
-                </select>
+                <div class="categorias checkbox">
+                    <!-- Título "Extras" -->
+                    <label for="Extras">Extras:</label>
 
-                <label for="decoracion">Decoración adicional:</label>
-                <textarea id="decoracion" name="decoracion"
-                    placeholder="Describe cómo quieres decorar tu pastel..."></textarea>
+                    <!-- Checkbox 1 -->
+                    <input type="checkbox" id="perlitas">
+                    <label class="titulo-box" for="perlitas">Perlitas</label>
 
-                <h3 id="total">Total: $0</h3>
-                <button type="button" onclick="enviarWhatsApp()">¡Cotizar mi pastel por WhatsApp!</button>
+                    <!-- Checkbox 2 -->
+                    <input type="checkbox" id="jelly-gems">
+                    <label class="titulo-box" for="jelly-gems">Jelly Gems</label>
+
+                    <!-- Checkbox 3 -->
+                    <input type="checkbox" id="glitter">
+                    <label class="titulo-box" for="glitter">Glitter</label>
+
+                    <!-- Checkbox 4 -->
+                    <input type="checkbox" id="galleta">
+                    <label class="titulo-box" for="galleta">Galleta</label>
+
+                </div>
+
+                <div class="categorias">
+                    <label for="notas">Notas/Especificaciones:</label>
+                    <textarea name="notas" id="notas" placeholder="Escribe algo que quieras agregar..." style="resize: none;"></textarea>
+                </div>
+                <button type="submit">Ordenar</button>
             </form>
         </div>
-    </div>
+    </main>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.getElementById('menu-icon');
+            const enlaces = document.getElementById('enlaces');
+
+            // Abrir/cerrar menú al hacer clic en el ícono
+            menuIcon.addEventListener('click', function (event) {
+                enlaces.classList.toggle('active');
+                event.stopPropagation(); // Evita que el clic en el ícono cierre inmediatamente el menú
+            });
+
+            // Cerrar menú al hacer clic fuera de él
+            document.addEventListener('click', function (event) {
+                if (!enlaces.contains(event.target) && !menuIcon.contains(event.target)) {
+                    enlaces.classList.remove('active');
+                }
+            });
+
+            // Cerrar menú al hacer scroll (para escritorio)
+            document.addEventListener('scroll', function () {
+                enlaces.classList.remove('active');
+            });
+
+            // Cerrar menú al hacer scroll en dispositivos móviles
+            document.addEventListener('touchmove', function () {
+                enlaces.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
